@@ -2,7 +2,7 @@ matrix:
   include:
   - language: bash
     script:
-    - bash linux_downloader.sh
+    - bash linux-downloader.sh
   - language: bash
     services:
       - docker

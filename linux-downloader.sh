@@ -1,6 +1,6 @@
 #!/bin/bash
 # ------------------------------------------------------------------
-# [Author] joergi - https://github.com/joergi/hackspace-magazine-downloader
+# [Author] joergi - https://github.com/joergi/Hackspace-Magazine-Downloader
 #          downloader for all Hackspace Magazine issues
 #          they are downloadable for free under: https://hackspace.raspberrypi.org/issues
 #          or you can buy the paper issues under: https://store.rpipress.cc/collections/all/hackspace-magazine?sort_by=created-descending
