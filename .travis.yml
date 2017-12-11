@@ -3,8 +3,7 @@ matrix:
   - language: bash
     script:
     - bash linux-downloader.sh
-
-    - bash linux_mac/linux-downloader.sh -f 60 -l 62
+    - bash linux-downloader.sh -f 1 -l 1
   - language: bash
     services:
       - docker
