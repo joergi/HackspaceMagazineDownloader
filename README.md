@@ -18,8 +18,8 @@ All Windows scripts are done by [github user Rubemlrm](https://github.com/Rubeml
 Download the normal issues:
   `./windows-downloader.ps1`
 
-~~Download a specific range of normal issues:
-  `./windows-downloader.ps1 -f 1 -l 1`~~
+Download a specific range of normal issues:
+  `./windows-downloader.ps1 -f 1 -l 1`
 
 
 
