@@ -12,10 +12,10 @@
 # USAGE="Usage: sh linux-downloader.sh"
 
 
-if [ ! -d "hackspace_issues" ]; then
- mkdir hackspace_issues
+if [ ! -d "issues" ]; then
+ mkdir issues
 fi
 
 #1
-wget https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original/HackSpaceMag01.pdf -P hackspace_issues/
+wget https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original/HackSpaceMag01.pdf -P issues/
 
