@@ -8,5 +8,6 @@ matrix:
       - docker
     script:
       - docker pull microsoft/powershell
-      - docker run -v $(pwd)/windows:/data microsoft/powershell /bin/sh -c "cd /data; chmod +x *.ps1; pwsh ./windows-downloader.ps1"
+      - docker run -v $(pwd):/data microsoft/powershell /bin/sh -c "cd /data; chmod +x *.ps1; pwsh ./windows-downloader.ps1"
+
 
