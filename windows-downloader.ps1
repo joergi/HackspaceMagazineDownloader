@@ -19,7 +19,7 @@ Param(
 # control variables
 $i=1
 $issues=1
-$baseUrl="https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original/HackSpaceMag01.pdf"
+$baseUrl="https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original"
 $web = New-Object system.net.webclient
 $errorCount = 0
 # Check if directory dont exist and try create
