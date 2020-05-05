@@ -16,7 +16,7 @@ if [ ! -d "issues" ]; then
 fi
 
 i=1
-issues=1
+issues=30
 
 while :
 do
@@ -32,14 +32,10 @@ done
 
 while [ $i -le $issues ]
 do
-	if [ "$i" -lt 10 ]; then
-		wget https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original/HackSpaceMag0$i.pdf -P issues/
-
-	else
-		wget https://s3-eu-west-1.amazonaws.com/rpi-magazines/issues/full_pdfs/000/000/007/original/HackSpaceMag$i.pdf -P issues/
-	fi
+	printf -v page_url "https://hackspace.raspberrypi.org/issues/%02d/pdf" $i
+	pdf_url=`curl -sf $page_url | grep \"c-link\" | sed 's/^.*href=\"//' | sed 's/\?.*$//'`
+	wget -N $pdf_url -P issues
 	i=$(( i+1 ))
 done
 
-
-
+exit 0
