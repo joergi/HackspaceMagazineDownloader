@@ -16,7 +16,8 @@ if [ ! -d "issues" ]; then
 fi
 
 i=1
-issues=30
+issues=$(cat "issues.txt");
+
 
 while :
 do
