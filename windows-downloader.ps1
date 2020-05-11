@@ -1,10 +1,12 @@
 #!/bin/bash
 # ------------------------------------------------------------------
-# [Author] rubemlrm - https://github.com/joergi/MagPiDownloader
-#          downloader for all MagPi issues
-#          they are downloadable for free under https://www.raspberrypi.org/magpi/issues/
-#          or you can buy the paper issues under: http://swag.raspberrypi.org/collections/magpi
+# [Author] rubemlrm - https://github.com/joergi/Hackspace-Magazine-Downloader
+#          downloader for all Hackspace Magazine issues
+#          they are downloadable for free under: https://hackspace.raspberrypi.org/issues
+#          or you can buy the paper issues under: https://store.rpipress.cc/collections/all/hackspace-magazine?sort_by=created-descending
 #          this script is under GNU GENERAL PUBLIC LICENSE
+#          These scripts are based on my MagPi Downloader https://github.com/joergi/MagPiDownloader
+
 # ------------------------------------------------------------------
 
 # VERSION=0.1.2
