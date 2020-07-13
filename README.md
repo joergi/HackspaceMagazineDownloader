@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/joergi/Hackspace-Magazine-Downloader.svg?branch=master)](https://travis-ci.org/joergi/Hackspace-Magazine-Downloader) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d346635cd05f42c0bfc185c52391c22d)](https://www.codacy.com/app/joergi/Hackspace-Magazine-Downloader?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=joergi/Hackspace-Magazine-Downloader&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d346635cd05f42c0bfc185c52391c22d)](https://www.codacy.com/app/joergi/Hackspace-Magazine-Downloader?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=joergi/Hackspace-Magazine-Downloader&amp;utm_campaign=Badge_Grade)
 
 # Hackspace-Magazine-Downloader for Windows, Mac OS and Linux
 A downloader for the free Hackspace magazine - https://hackspace.raspberrypi.org/
