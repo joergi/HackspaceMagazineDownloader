@@ -26,6 +26,10 @@ jobs:
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
         run: ./downloader.ps1 -f 29
+      - name: Download all Issues
+        id: downloadAllIssues
+        shell: pwsh
+        run: ./downloader.ps1
   bash-linux:
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +43,9 @@ jobs:
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
         run: ./downloader.sh -f 24 -l 25
+      - name: Download Issues with start and end limit Linux
+        id: downloadAllIssues
+        run: ./downloader.sh
   bash-macos:
     runs-on: macos-latest
     steps:
@@ -51,4 +58,7 @@ jobs:
         run: ./downloader.sh -l 2
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
-        run: bash ./downloader.sh -f 24 -l 25
+        run: ./downloader.sh -f 24 -l 25
+      - name: download all issues
+        id: download all issues
+        run: /downloader.sh
