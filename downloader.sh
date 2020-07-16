@@ -8,35 +8,24 @@
 #          This scripts are based on my MagPi Downloader https://github.com/joergi/MagPiDownloader
 # ------------------------------------------------------------------
 
-# VERSION=0.1.0
-# USAGE="Usage: sh linux-downloader.sh [-f firstissue] [-l lastissue]"
+# VERSION=0.2.0
+# USAGE="Usage: sh downloader.sh [-f firstissue] [-l lastissue]"
 
-if [ ! -d "issues" ]; then
- mkdir issues
+
+BASEDIR=$(dirname "$0")/..
+OUTDIR=$BASEDIR/issues
+
+if [ ! -d "$OUTDIR" ]; then
+ mkdir "$OUTDIR"
 fi
 
-i=1
-issues=$(cat "issues.txt");
+downloadUrl="https://hackspace.raspberrypi.org/issues/%02d/pdf"
+file="$BASEDIR/issues.txt";
+recentIssue=$(cat "$file");
 
-
-while :
-do
-	case "$1" in
-	-f) shift; i="$1";;
-	-l) shift; issues="$1";;
-	--) shift; break;;
-	-*) usage "bad argument $1";;
-	*) break;;
-	esac
-	shift
-done
-
-while [ $i -le $issues ]
-do
-	printf -v page_url "https://hackspace.raspberrypi.org/issues/%02d/pdf" $i
-	pdf_url=`curl -sf $page_url | grep \"c-link\" | sed 's/^.*href=\"//' | sed 's/\?.*$//'`
-	wget -N $pdf_url -P issues
-	i=$(( i+1 ))
-done
+# shellcheck disable=SC1090
+source <(curl -s https://raw.githubusercontent.com/joergi/downloader/master/linux_mac/downloader.sh) "$downloadUrl" "$recentIssue" "$@"
 
 exit 0
+
+
