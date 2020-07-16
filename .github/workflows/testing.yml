@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Test Scripts
+name: TestScripts
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -19,39 +17,38 @@ jobs:
       - name: Download Issues With end limit
         id: normalIssuesWithEndLimitWindows
         shell: pwsh
-        run: ./windows/magpi-issue-downloader.ps1 -l 3
+        run: ./downloader.ps1 -l 3
       - name: Download Issues with start and end limit
         id: normalIssuesWithStartAndEndRangeWindows
         shell: pwsh
-        run: ./windows/magpi-issue-downloader.ps1 -f 24 -l 25
+        run: ./downloader.ps1 -f 24 -l 25
       - name: Download Issues with start limit
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
-        run: ./windows/magpi-issue-downloader.ps1 -f 29
+        run: ./downloader.ps1 -f 29
   bash-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Linux
         id: normalIssuesWithStartLimitLinux
-        run: bash ./linux_mac/magpi-issue-downloader.sh -f 29
+        run: ./downloader.sh -f 29
       - name: Download Issues with end limit Linux
         id: normalIssuesWithEndLimitLInux
-        run: bash ./linux_mac/magpi-issue-downloader.sh -l 2
+        run: ./downloader.sh -l 2
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
-        run: bash ./linux_mac/magpi-issue-downloader.sh -f 24 -l 25                
+        run: ./downloader.sh -f 24 -l 25
+  bash-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: bash ./linux_mac/magpi-issue-downloader.sh -f 29
-     - name: Download Issues with start and end limit Mac
+        run: ./downloader.sh -f 29
+      - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
-        run: bash ./linux_mac/magpi-issue-downloader.sh -l 2
-     - name: Download Issues with start and end limit Mac
+        run: ./downloader.sh -l 2
+      - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
-        run: bash ./linux_mac/magpi-issue-downloader.sh -f 24 -l 25
+        run: bash ./downloader.sh -f 24 -l 25
