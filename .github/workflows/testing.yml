@@ -60,5 +60,5 @@ jobs:
         id: normalIssuesWithStartAndEndLimitMac
         run: ./downloader.sh -f 24 -l 25
       - name: download all issues
-        id: download all issues
+        id: downloadAllIssues
         run: /downloader.sh
