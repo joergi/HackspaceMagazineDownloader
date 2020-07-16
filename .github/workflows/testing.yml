@@ -43,7 +43,7 @@ jobs:
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
         run: ./downloader.sh -f 24 -l 25
-      - name: Download Issues with start and end limit Linux
+      - name: Download all Issues
         id: downloadAllIssues
         run: ./downloader.sh
   bash-macos:
