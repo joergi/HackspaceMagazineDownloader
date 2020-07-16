@@ -11,16 +11,14 @@
 # VERSION=0.2.0
 # USAGE="Usage: sh downloader.sh [-f firstissue] [-l lastissue]"
 
-
-BASEDIR=$(dirname "$0")/..
-OUTDIR=$BASEDIR/issues
+OUTDIR=issues
 
 if [ ! -d "$OUTDIR" ]; then
  mkdir "$OUTDIR"
 fi
 
 downloadUrl="https://hackspace.raspberrypi.org/issues/%02d/pdf"
-file="$BASEDIR/issues.txt";
+file="issues.txt";
 recentIssue=$(cat "$file");
 
 # shellcheck disable=SC1090
