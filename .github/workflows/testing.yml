@@ -17,48 +17,54 @@ jobs:
       - name: Download Issues With end limit
         id: normalIssuesWithEndLimitWindows
         shell: pwsh
-        run: ./downloader.ps1 -l 3
+        run: ./hackspace-downloader.ps1 -l 3
       - name: Download Issues with start and end limit
         id: normalIssuesWithStartAndEndRangeWindows
         shell: pwsh
-        run: ./downloader.ps1 -f 24 -l 25
+        run: ./hackspace-downloader.ps1 -f 24 -l 25
       - name: Download Issues with start limit
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
-        run: ./downloader.ps1 -f 29
+        run: ./hackspace-downloader.ps1 -f 29
       - name: Download all Issues
         id: downloadAllIssues
         shell: pwsh
-        run: ./downloader.ps1
+        run: ./hackspace-downloader.ps1
   bash-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Linux
         id: normalIssuesWithStartLimitLinux
-        run: ./downloader.sh -f 29
+        run: ./hackspace-downloader.sh -f 29
       - name: Download Issues with end limit Linux
         id: normalIssuesWithEndLimitLInux
-        run: ./downloader.sh -l 2
+        run: ./hackspace-downloader.sh -l 2
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
-        run: ./downloader.sh -f 24 -l 25
+        run: ./hackspace-downloader.sh -f 24 -l 25
       - name: Download all Issues
         id: downloadAllIssues
-        run: ./downloader.sh
+        run: ./hackspace-downloader.sh
+      - name: Download all books
+        id: downloadAllBooks
+        run: ./hackspace-books-downloader.sh
   bash-macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: ./downloader.sh -f 29
+        run: ./hackspace-downloader.sh -f 29
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
-        run: ./downloader.sh -l 2
+        run: ./hackspace-downloader.sh -l 2
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
-        run: ./downloader.sh -f 24 -l 25
+        run: ./hackspace-downloader.sh -f 24 -l 25
       - name: download all issues
         id: downloadAllIssues
-        run: ./downloader.sh
+        run: ./hackspace-downloader.sh
+      - name: Download all books
+        id: downloadAllBooks
+        run: ./hackspace-books-downloader.sh
