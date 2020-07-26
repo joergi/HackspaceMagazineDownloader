@@ -20,7 +20,7 @@ fi
 file="special-editions.txt"
 while IFS= read -r line
 do
-	bash <(curl https://raw.githubusercontent.com/joergi/downloader/master/linux_mac/downloader.sh) $line	
+	bash <(curl https://raw.githubusercontent.com/joergi/downloader/main/linux_mac/downloader.sh) $line	
 done < "$file"
 
 exit 0
