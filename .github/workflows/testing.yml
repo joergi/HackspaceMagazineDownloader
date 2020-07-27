@@ -87,7 +87,7 @@ jobs:
           files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine33.pdf"
           allow_failure: false
       - name: lslah
-        run: ls -lah issues/
+        run: ls -lah . issues/
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'false'
         run: exit 1        
