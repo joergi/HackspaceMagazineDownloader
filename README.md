@@ -22,8 +22,6 @@ Download the normal issues:
 Download a specific range of normal issues:
   `./windows-downloader.ps1 -f 1 -l 1`
 
-
-
 # Hackspace-Magazine-Downloader on Linux or Mac OS
 
 Downloads all the Mag Pi issues (a Raspberry Pi magazine) on Linux and Mac OS
