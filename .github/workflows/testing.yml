@@ -17,54 +17,71 @@ jobs:
       - name: Download Issues With end limit
         id: normalIssuesWithEndLimitWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -l 3
+        run: ./downloader.ps1 -l 3
       - name: Download Issues with start and end limit
         id: normalIssuesWithStartAndEndRangeWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -f 24 -l 25
+        run: ./downloader.ps1 -f 24 -l 25
       - name: Download Issues with start limit
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -f 29
-      - name: Download all Issues
-        id: downloadAllIssues
-        shell: pwsh
-        run: ./hackspace-downloader.ps1
+        run: ./downloader.ps1 -f 31
+      - name: "Check file existence Windows"
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-25.pdf, issues/hackspace-magazine-issue-33.pdf"
+          allow_failure: false
+      - name: lslah
+        run: Get-ChildItem issues/
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: exit 1        
   bash-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Linux
         id: normalIssuesWithStartLimitLinux
-        run: ./hackspace-downloader.sh -f 29
+        run: ./downloader.sh -f 31
       - name: Download Issues with end limit Linux
         id: normalIssuesWithEndLimitLInux
-        run: ./hackspace-downloader.sh -l 2
+        run: ./downloader.sh -l 2
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
-        run: ./hackspace-downloader.sh -f 24 -l 25
-      - name: Download all Issues
-        id: downloadAllIssues
-        run: ./hackspace-downloader.sh
-      - name: Download all books
-        id: downloadAllBooks
-        run: ./hackspace-books-downloader.sh
+        run: ./downloader.sh -f 26 -l 27        
+      - name: "Check file existence linux"
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine27.pdf, issues/HackSpaceMagazine33.pdf"
+          allow_failure: false
+      - name: lslah
+        run: ls -lah issues/
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: exit 1
   bash-macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: ./hackspace-downloader.sh -f 29
+        run: ./downloader.sh -f 32
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
-        run: ./hackspace-downloader.sh -l 2
+        run: ./downloader.sh -l 2
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
-        run: ./hackspace-downloader.sh -f 24 -l 25
-      - name: download all issues
-        id: downloadAllIssues
-        run: ./hackspace-downloader.sh
-      - name: Download all books
-        id: downloadAllBooks
-        run: ./hackspace-books-downloader.sh
+        run: bash ./downloader.sh -f 24 -l 25
+      - name: "Check file existence linux"
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine33.pdf"
+          allow_failure: false
+      - name: lslah
+        run: ls -lah issues/
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: exit 1        
