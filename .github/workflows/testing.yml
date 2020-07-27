@@ -49,7 +49,10 @@ jobs:
         run: ./hackspace-downloader.sh -l 2
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
-        run: ./hackspace-downloader.sh -f 26 -l 27        
+        run: ./hackspace-downloader.sh -f 26 -l 27 
+      - name: download all books
+        id: downloadallbooks
+        run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
         uses: andstor/file-existence-action@v1
@@ -74,6 +77,9 @@ jobs:
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
         run: ./hackspace-downloader.sh -f 24 -l 25
+      - name: download all books
+        id: downloadallbooks
+        run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
         uses: andstor/file-existence-action@v1
