@@ -11,16 +11,17 @@
 # VERSION=0.2.0
 # USAGE="Usage: bash hackspace-books-downloader.sh [-f firstissue] [-l lastissue]"
 
-OUTDIR=issues
+OUTDIR=special-issues
 
 if [ ! -d "$OUTDIR" ]; then
  mkdir "$OUTDIR"
 fi
 
+
 file="special-editions.txt"
 while IFS= read -r line
 do
-	bash <(curl https://raw.githubusercontent.com/joergi/downloader/main/linux_mac/downloader.sh) $line	
+	bash <(curl https://raw.githubusercontent.com/joergi/downloader/main/linux_mac/downloader.sh) "$line" "$OUTDIR"
 done < "$file"
 
 exit 0
