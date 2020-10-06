@@ -25,12 +25,12 @@ jobs:
       - name: Download Issues with start limit
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -f 31
+        run: ./hackspace-downloader.ps1 -f 34
       - name: "Check file existence Windows"
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-25.pdf, issues/hackspace-magazine-issue-33.pdf"
+          files: "issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-25.pdf, issues/hackspace-magazine-issue-35.pdf"
           allow_failure: false
       - name: lslah
         run: Get-ChildItem issues/
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Linux
         id: normalIssuesWithStartLimitLinux
-        run: ./hackspace-downloader.sh -f 31
+        run: ./hackspace-downloader.sh -f 34
       - name: Download Issues with end limit Linux
         id: normalIssuesWithEndLimitLInux
         run: ./hackspace-downloader.sh -l 2
@@ -57,7 +57,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine27.pdf, issues/HackSpaceMagazine33.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine27.pdf, issues/HackSpaceMagazine35.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah issues/
@@ -70,7 +70,7 @@ jobs:
       - uses: actions/checkout@v2.3.1
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: ./hackspace-downloader.sh -f 32
+        run: ./hackspace-downloader.sh -f 34
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
         run: ./hackspace-downloader.sh -l 2
@@ -84,7 +84,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine33.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine35.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
