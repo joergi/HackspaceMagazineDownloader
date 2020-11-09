@@ -57,7 +57,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
-          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpacemagazine36.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine36.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
