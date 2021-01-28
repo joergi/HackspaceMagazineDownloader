@@ -2,3 +2,4 @@ https://hackspace.raspberrypi.org/books/book-of-making1/pdf
 https://hackspace.raspberrypi.org/books/wearable/pdf
 https://hackspace.raspberrypi.org/books/arduino/pdf
 https://hackspace.raspberrypi.org/books/book-of-making2/pdf
+https://hackspace.raspberrypi.org/books/micropython-pico/pdf
