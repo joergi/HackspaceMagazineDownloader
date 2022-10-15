@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader.svg)](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader) ![TestScripts](https://github.com/joergi/HackspaceMagazineDownloader/workflows/TestScripts/badge.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d346635cd05f42c0bfc185c52391c22d)](https://www.codacy.com/app/joergi/Hackspace-Magazine-Downloader?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=joergi/Hackspace-Magazine-Downloader&amp;utm_campaign=Badge_Grade)
+[![HitCount](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader.svg)](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader) ![TestScripts](https://github.com/joergi/HackspaceMagazineDownloader/workflows/TestScripts/badge.svg)
 
 
 # Hackspace-Magazine-Downloader for Windows, Mac OS and Linux
@@ -29,7 +29,7 @@ Downloads all the Mag Pi issues (a Raspberry Pi magazine) on Linux and Mac OS
   `git clone https://github.com/joergi/Hackspace-Magazine-Downloader.git`   
 
 Download the normal issues:  
-  `bash linux-downloader.sh`
+  `./hackspace-downloader.sh`
 
 Download a specific range of normal issues:
-  `bash linux-downloader.sh -f 1 -l 1`
+  `./hackspace-downloader.sh -f 1 -l 1`
