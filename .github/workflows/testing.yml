@@ -14,23 +14,33 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: pCYSl5EDgo/cat@master
+        id: read_recent
+        with:
+          path: issues.txt
+      - run: |
+          echo "ISSUE_NUMBER=${{ steps.read_recent.outputs.text }}" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_ONE=$((${{ steps.read_recent.outputs.text }}-1))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_FIVE=$((${{ steps.read_recent.outputs.text }}-5))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_SIX=$((${{ steps.read_recent.outputs.text }}-6))" >> $GITHUB_ENV
+
       - name: Download Issues With end limit
         id: normalIssuesWithEndLimitWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -l 3
+        run: ./hackspace-downloader.ps1 -l 2
       - name: Download Issues with start and end limit
         id: normalIssuesWithStartAndEndRangeWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -f 24 -l 25
+        run: ./hackspace-downloader.ps1 -f ${{ env.ISSUE_MINUS_SIX }} -l ${{ env.ISSUE_MINUS_FIVE }}
       - name: Download Issues with start limit
         id: normalIssuesWithRangeAndStartLimitWindows
         shell: pwsh
-        run: ./hackspace-downloader.ps1 -f 34
+        run: ./hackspace-downloader.ps1 -f ${{ env.ISSUE_MINUS_ONE }}
       - name: "Check file existence Windows"
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-25.pdf, issues/hackspace-magazine-issue-36.pdf"
+          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf, "
           allow_failure: false
       - name: lslah
         run: Get-ChildItem issues/
@@ -41,23 +51,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: pCYSl5EDgo/cat@master
+        id: read_recent
+        with:
+          path: issues.txt
+      - run: |
+          echo "ISSUE_NUMBER=${{ steps.read_recent.outputs.text }}" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_ONE=$((${{ steps.read_recent.outputs.text }}-1))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_FIVE=$((${{ steps.read_recent.outputs.text }}-5))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_SIX=$((${{ steps.read_recent.outputs.text }}-6))" >> $GITHUB_ENV
+        
       - name: Download Issues with start limit Linux
         id: normalIssuesWithStartLimitLinux
-        run: ./hackspace-downloader.sh -f 34
+        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_MINUS_ONE }}
       - name: Download Issues with end limit Linux
         id: normalIssuesWithEndLimitLInux
         run: ./hackspace-downloader.sh -l 2
       - name: Download Issues with start and end limit Linux
         id: normalIssuesWithStartAndEndLimitLinux
-        run: ./hackspace-downloader.sh -f 24 -l 25
+        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_MINUS_SIX }} -l ${{ env.ISSUE_MINUS_FIVE }}
       - name: download all books
         id: downloadallbooks
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine36.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
@@ -68,23 +88,33 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: pCYSl5EDgo/cat@master
+        id: read_recent
+        with:
+          path: issues.txt
+      - run: |
+          echo "ISSUE_NUMBER=${{ steps.read_recent.outputs.text }}" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_ONE=$((${{ steps.read_recent.outputs.text }}-1))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_FIVE=$((${{ steps.read_recent.outputs.text }}-5))" >> $GITHUB_ENV
+          echo "ISSUE_MINUS_SIX=$((${{ steps.read_recent.outputs.text }}-6))" >> $GITHUB_ENV
+        
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: ./hackspace-downloader.sh -f 34
+        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_NUMBER_ONE }}
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
         run: ./hackspace-downloader.sh -l 2
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithStartAndEndLimitMac
-        run: ./hackspace-downloader.sh -f 24 -l 25
+        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_MINUS_SIX }} -l ${{ env.ISSUE_MINUS_FIVE }}
       - name: download all books
         id: downloadallbooks
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine25.pdf, issues/HackSpaceMagazine36.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
