@@ -40,7 +40,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/HS#$${{ env.ISSUE_MINUS_SIX }}_Digital.pdf, issues/HS#$${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/HS#${{ env.ISSUE_MINUS_ONE }}_Digital.pdf, issues/HS#${{ env.ISSUE_MINUS }}_Digital.pdf, "
+          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf, "
           allow_failure: false
       - name: lslah
         run: Get-ChildItem issues/
@@ -77,7 +77,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS#${{ env.ISSUE_MINUS_SIX }}_Digital.pdf, issues/HS#${{ env.ISSUE_MINUS_FIVE }}_Digital.pdf,issues/HS#${{ env.ISSUE_MINUS_ONE }}_Digital.pdf,issues/HS#${{ env.ISSUE_MINUS }}_Digital.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
@@ -114,7 +114,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HackSpaceMagazine${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HackSpaceMagazine${{ env.ISSUE_MINUS }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS#${{ env.ISSUE_MINUS_SIX }}_Digital.pdf, issues/HS#${{ env.ISSUE_MINUS_FIVE }}_Digital.pdf,issues/HS#${{ env.ISSUE_MINUS_ONE }}_Digital.pdf,issues/HS#${{ env.ISSUE_MINUS }}_Digital.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           allow_failure: false
       - name: lslah
         run: ls -lah . issues/
