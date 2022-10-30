@@ -40,7 +40,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf, "
+          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/HS#$${{ env.ISSUE_MINUS_SIX }}_Digital.pdf, issues/HS#$${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/HS#${{ env.ISSUE_MINUS_ONE }}_Digital.pdf, issues/HS#${{ env.ISSUE_MINUS }}_Digital.pdf, "
           allow_failure: false
       - name: lslah
         run: Get-ChildItem issues/
