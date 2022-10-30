@@ -100,7 +100,7 @@ jobs:
         
       - name: Download Issues with start limit Mac
         id: normalIssuesWithStartLimitMac
-        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_NUMBER_ONE }}
+        run: ./hackspace-downloader.sh -f ${{ env.ISSUE_MINUS_ONE }}
       - name: Download Issues with start and end limit Mac
         id: normalIssuesWithEndLimitMac
         run: ./hackspace-downloader.sh -l 2
