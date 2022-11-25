@@ -1,4 +1,4 @@
-# USAGE="Usage: windows-downloader.ps [-f firstissue] [-l lastissue]"
+# USAGE="Usage: hackspace-downloader.ps1 [-f firstissue] [-l lastissue]"
 
 <#
 .SYNOPSIS
