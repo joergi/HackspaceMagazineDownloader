@@ -23,7 +23,6 @@ param(
 
 # control variables
 $baseDir = Split-Path -Path $PSScriptRoot -Parent
-echo $baseDir
 if (!$LastIssue) {
     $LastIssue = Get-Content "$baseDir\HackspaceMagazineDownloader\issues.txt" -First 1
 }
