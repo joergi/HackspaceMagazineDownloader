@@ -44,7 +44,7 @@ jobs:
           files: "../issues/hackspace-magazine-issue-1.pdf, ../issues/hackspace-magazine-issue-2.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf, "
           allow_failure: false
       - name: lslah
-        run: ls -lah ../
+        run: ls -lah ../issues
         shell: bash
         #run: Get-ChildItem -path D:\a\HackspaceMagazineDownloader\HackspaceMagazineDownloader\issues
       - name: File exists
