@@ -1,63 +1,60 @@
-#!/bin/bash
-# ------------------------------------------------------------------
-# [Author] rubemlrm - https://github.com/joergi/Hackspace-Magazine-Downloader
-#          downloader for all Hackspace Magazine issues
-#          they are downloadable for free under: https://hackspace.raspberrypi.org/issues
-#          or you can buy the paper issues under: https://store.rpipress.cc/collections/all/hackspace-magazine?sort_by=created-descending
-#          this script is under GNU GENERAL PUBLIC LICENSE
-#          These scripts are based on my MagPi Downloader https://github.com/joergi/MagPiDownloader
-
-# ------------------------------------------------------------------
-
-# VERSION=0.1.2
 # USAGE="Usage: windows-downloader.sh [-f firstissue] [-l lastissue]"
 
+<#
+.SYNOPSIS
+    Downloader for all Hackspace issues
+.DESCRIPTION
+     they are downloadable for free under: https://hackspace.raspberrypi.org/issues
+     or you can buy the paper issues under: https://store.rpipress.cc/collections/all/hackspace-magazine?sort_by=created-descending
+     this script is under GNU GENERAL PUBLIC LICENSE
 
-Param(
-    [string]$f,
-    [string]$l
+.NOTES
+    This script is under GNU GENERAL PUBLIC LICENSE
+    Orignal author: Rubemlrm - https://github.com/Rubemlrm
+    The new rewritten code is copied from The Magpi Windows code by [Author](https://github.com/Jaykul)
+    Script is part of https://github.com/joergi/Hackspace-Magazine-Downloader
+#>
+    [CmdletBinding()]
+param(
+    [string]$FirstIssue = "1",
+    [string]$LastIssue
 )
+[uri]$baseUrl = "https://hackspace.raspberrypi.com/issues"
 
 # control variables
-$i = 1
-$baseDir = ($PSScriptRoot)
-Write-Host ($baseDir)
-$issues = Get-Content "$baseDir\issues.txt" -First 1
-$baseUrl = "https://hackspace.raspberrypi.org/issues/"
-$web = New-Object system.net.webclient
-$errorCount = 0
+$baseDir = Split-Path -Path $PSScriptRoot -Parent
+if (!$LastIssue) {
+    $LastIssue = Get-Content "$baseDir\issues.txt" -First 1
+}
+
+$downloadDir = Join-Path $baseDir "issues"
 
 # Check if directory dont exist and try create
-if ( -Not (Test-Path -Path "$baseDir\issues" ) ) {
-    New-Item -ItemType directory -Path "$baseDir\issues"
+if (!(Test-Path -Path $downloadDir)) {
+    $null = New-Item -ItemType Directory -Path $downloadDir -ErrorAction Stop
 }
 
-
-if ($f) {
-    $i = [int]$f
-}
-
-if ($l) {
-    $issues = [int]$l
-}
-
-do {
-    #start scrapping directory and download files
-    $tempCounter = if ($i -le 9) { "{0:00}" -f $i }  Else { $i }
-    $fileReponse = ((Invoke-WebRequest -UseBasicParsing "$baseUrl$tempCounter/pdf").Links | Where-Object { $_.href -like "http*" } | Where class -eq c-link)
-    if ($fileReponse) {
+$errorCount = 0
+foreach($issue in $FirstIssue..$LastIssue) {
+    $uri = [uri]::new($baseurl,"{0:00}/pdf" -f $issue)
+    Write-Verbose -Message "Downloading $uri"
+    if (($link = (Invoke-WebRequest -UseBasicParsing $uri).Links.Where{ $_.class -eq "c-link" }.href)) {
+        $uri = [uri]::new($baseurl, $link)
         try {
-            $web.DownloadFile($fileReponse.href, "$baseDir\issues\" + $fileReponse.download)
-            Write-Host "Downloaded from " + $fileReponse.href
-        }
-        Catch {
-            Write-Host $_.Exception | format-list -force
-            Write-Host "Ocorred an error trying download " + $fileReponse.download
+            Write-Information "Downloading $uri"
+            Write-Output "Downloading $uri"
+            Invoke-WebRequest $uri -OutFile (Join-Path $downloadDir $uri.Segments[-1]) -ErrorAction Stop
+            Write-Verbose -Message "Downloaded $uri"
+        } catch {
+            Write-Warning "Failed downloading $uri"
+            Get-Error | Out-String | Write-Verbose -Verbose
             $errorCount++
         }
+    } else {
+        Write-Warning "Failed to find link for issue $issue"
+        $errorCount++
     }
-    $i++
-} While ($i -le $issues)
+}
 
 if ($errorCount -gt 0) {
     exit 1

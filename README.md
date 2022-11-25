@@ -1,7 +1,5 @@
-[![HitCount](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader.svg)](http://hits.dwyl.com/joergi/Hackspace-Magazine-Downloader) ![TestScripts](https://github.com/joergi/HackspaceMagazineDownloader/workflows/TestScripts/badge.svg)
-
-
 # Hackspace-Magazine-Downloader for Windows, Mac OS and Linux
+![TestScripts](https://github.com/joergi/HackspaceMagazineDownloader/workflows/TestScripts/badge.svg)   
 A downloader for the free Hackspace magazine - https://hackspace.raspberrypi.org/
 
 
