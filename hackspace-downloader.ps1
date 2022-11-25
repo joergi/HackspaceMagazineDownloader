@@ -19,7 +19,7 @@ param(
     [string]$FirstIssue = "1",
     [string]$LastIssue
 )
-[uri]$baseUrl = "https://hackspace.raspberrypi.com/issues"
+[uri]$baseUrl = "https://hackspace.raspberrypi.com/issues/"
 
 # control variables
 $baseDir = Split-Path -Path $PSScriptRoot -Parent
