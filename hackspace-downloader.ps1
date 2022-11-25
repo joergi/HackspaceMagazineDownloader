@@ -1,4 +1,4 @@
-# USAGE="Usage: windows-downloader.sh [-f firstissue] [-l lastissue]"
+# USAGE="Usage: windows-downloader.ps [-f firstissue] [-l lastissue]"
 
 <#
 .SYNOPSIS
