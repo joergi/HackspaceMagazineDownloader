@@ -10,6 +10,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
   powershell:
     runs-on: windows-latest
     steps:
@@ -41,13 +42,14 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/hackspace-magazine-issue-1.pdf, issues/hackspace-magazine-issue-2.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf, "
+          files: "../issues/HackSpaceMag01.pdf, ../issues/HackSpaceMag02.pdf, ../issues/HS%23${{ env.ISSUE_MINUS_SIX }}_digital.pdf, ../issues/HS%23${{ env.ISSUE_MINUS_FIVE }}_digital.pdf, ../issues/HS%23${{ env.ISSUE_MINUS_ONE }}_digital.pdf, ../issues/HS%23${{ env.ISSUE_NUMBER }}_digital.pdf"
           allow_failure: false
-      - name: lslah
-        run: Get-ChildItem issues/
+      - name: lslah2
+        run: Get-ChildItem ../issues/
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'false'
-        run: exit 1        
+        run: exit 1
+
   bash-linux:
     runs-on: ubuntu-latest
     steps:
