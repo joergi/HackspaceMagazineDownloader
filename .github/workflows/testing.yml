@@ -44,8 +44,12 @@ jobs:
         with:
           files: "../issues/hackspace-magazine-issue-1.pdf, ../issues/hackspace-magazine-issue-2.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_SIX }}.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_FIVE }}.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS_ONE }}.pdf, ../issues/hackspace-magazine-issue-${{ env.ISSUE_MINUS }}.pdf"
           allow_failure: false
-      - name: lslah
+      - name: lslah1
         run: Get-ChildItem issues/
+      - name: lslah2
+        run: Get-ChildItem ../issues/
+      - name: lslah3
+        run: Get-ChildItem .
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'false'
         run: exit 1
