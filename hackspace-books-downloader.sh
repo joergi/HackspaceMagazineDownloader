@@ -1,4 +1,9 @@
- #!/bin/bash
+#!/bin/bash
+set -o errexit
+#set -o pipefail ## it's failing for line 82 + 86 in downloader
+set -o nounset
+IFS=$'\n\t'
+
 # ------------------------------------------------------------------
 # [Author] joergi - https://github.com/joergi/WireframeDownloader
 #          downloader for all Wireframe magzine issues and books
@@ -21,7 +26,7 @@ fi
 file="special-editions.txt"
 while IFS= read -r line
 do
-	bash <(curl https://raw.githubusercontent.com/joergi/downloader/0.4.3/linux_mac/downloader.sh) "$line" "$OUTDIR"
+	bash <(curl https://raw.githubusercontent.com/joergi/downloader/0.4.5/linux_mac/downloader.sh) "$line" "$OUTDIR"
 done < "$file"
 
 exit 0
