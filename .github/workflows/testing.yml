@@ -42,7 +42,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf, issues/HS${{ env.ISSUE_NUMBER }}_DIGITAL.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf, issues/HS$_{{ env.ISSUE_NUMBER }}_DIGITAL.pdf"
           fail: false
           ignore_case: true
       - name: lslah2
@@ -81,7 +81,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf,issues/HS${{ env.ISSUE_NUMBER }}_DIGITAL.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf,issues/HS$_{{ env.ISSUE_NUMBER }}_DIGITAL.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
           ignore_case: true
       - name: lslah
@@ -119,7 +119,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf,issues/HS${{ env.ISSUE_NUMBER }}_DIGITAL.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
+          files: "issues/HackSpaceMag01.pdf, issues/HackSpaceMag02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}_DIGITAL.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}_DIGITAL.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}_DIGITAL.pdf,issues/HS$_{{ env.ISSUE_NUMBER }}_DIGITAL.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
           ignore_case: true
       - name: lslah
