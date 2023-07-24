@@ -13,11 +13,11 @@ IFS=$'\n\t'
 # you don't need to run this script
 # this is running automatically on Github each date to update the latest issues
 
-MAGPI_URL="https://hackspace.raspberrypi.com/"
+TARGET_URL="https://hackspace.raspberrypi.com/"
 BASEDIR=$(dirname "$0")
 
-#printf -v page_url "$MAGPI_URL/issues"
-page_url=$(printf '%s\n' "$MAGPI_URL/issues")
+#printf -v page_url "$TARGET_URL/issues"
+page_url=$(printf '%s\n' "$TARGET_URL/issues")
 
 latest_issue=$(curl -sf "$page_url" | grep "Get PDF" | head -n 1 | sed 's/^.*issues\///' | sed 's/\/pdf.*$//')
 echo "Latest Issue is " "$latest_issue"
