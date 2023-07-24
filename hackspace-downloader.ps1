@@ -18,9 +18,9 @@ param(
 [uri]$baseUrl = "https://hackspace.raspberrypi.org/issues/"
 
 # control variables
-$baseDir = Split-Path -Path $PSScriptRoot -Parent
+$baseDir = $PWD.Path
 if (!$LastIssue) {
-    $LastIssue = Get-Content "$baseDir\HackspaceMagazineDownloader\issues.txt" -First 1
+    $LastIssue = Get-Content "$baseDir\issues.txt" -First 1
 }
 
 $downloadDir = Join-Path $baseDir "issues"
