@@ -16,7 +16,7 @@ jobs:
       - uses: pCYSl5EDgo/cat@master
         id: read_recent
         with:
-          path: /issues.txt
+          path: ./issues.txt
       - run: |
           echo "ISSUE_NUMBER=${{ steps.read_recent.outputs.text }}" >> $GITHUB_ENV
       - name: config git
