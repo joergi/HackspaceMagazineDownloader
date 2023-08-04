@@ -26,7 +26,7 @@ fi
 file="special-editions.txt"
 while IFS= read -r line
 do
-	bash <(curl https://raw.githubusercontent.com/joergi/downloader/0.4.5/linux_mac/downloader.sh) "$line" "$OUTDIR"
+	bash <(curl https://raw.githubusercontent.com/joergi/downloader/0.4.6/linux_mac/downloader.sh) "$line" "$OUTDIR"
 done < "$file"
 
 exit 0
