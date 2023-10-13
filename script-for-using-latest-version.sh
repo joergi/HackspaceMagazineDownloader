@@ -22,6 +22,16 @@ page_url=$(printf '%s\n' "$TARGET_URL/issues")
 latest_issue=$(curl -sf "$page_url" | grep "Get PDF" | head -n 1 | sed 's/^.*issues\///' | sed 's/\/pdf.*$//')
 echo "Latest Issue is " "$latest_issue"
 
-file="$BASEDIR/issues.txt";
-echo $file
-echo "$latest_issue" >"$file"
+file="issues.txt";
+
+
+if bash hackspace-downloader.sh -f "$latest_issue" -l "$latest_issue"; then
+  echo "Download was successful."
+  echo "$latest_issue" > "$file"
+else
+  echo "Download failed."
+  rm issues/HS_"$latest_issue".pdf
+fi
+
+exit 0
+exit 0
