@@ -40,7 +40,7 @@ jobs:
         run: ./hackspace-downloader.ps1 -f ${{ env.ISSUE_MINUS_ONE }}
       - name: "Check file existence Windows"
         id: check_files
-        uses: andstor/file-existence-action@v2.0.0
+        uses: andstor/file-existence-action@v3.0.0
         with:
           files: "issues/HS_01.pdf, issues/HS_02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf"
           fail: false
@@ -79,7 +79,7 @@ jobs:
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v2.0.0
+        uses: andstor/file-existence-action@v3.0.0
         with:
           files: "issues/HS_1.pdf, issues/HS_2.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
@@ -117,7 +117,7 @@ jobs:
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v2.0.0
+        uses: andstor/file-existence-action@v3.0.0
         with:
           files: "issues/HS_1.pdf, issues/HS_2.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
