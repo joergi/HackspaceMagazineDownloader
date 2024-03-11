@@ -33,3 +33,10 @@ Download the normal issues:
 
 Download a specific range of normal issues:
   `./hackspace-downloader.sh -f 1 -l 1`
+
+
+---
+# This project was done by this lovely people, thank you!!!
+<a href="https://github.com/joergi/hackspacemagazinedownloader/graphs/contributors">
+<img alt="all contributers" src="https://contrib.rocks/image?repo=joergi/hackspacemagazinedownloader" />
+</a>
