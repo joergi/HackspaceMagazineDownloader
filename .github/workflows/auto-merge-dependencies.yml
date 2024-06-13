@@ -1,0 +1,50 @@
+name: Enables auto-merge on dependency pull requests
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  enable-automerge:
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'automerge')
+      && 
+        contains(github.event.pull_request.labels.*.name, 'dependencies')
+      && (
+        contains(github.event.pull_request.labels.*.name, 'minor')
+        || contains(github.event.pull_request.labels.*.name, 'patch')
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4.1.4
+
+      - name: find_branch_name
+        id: find_branch_name
+        run: |
+          gh repo view --json nameWithOwner,defaultBranchRef | jq -r '.defaultBranchRef.name'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find Pull Request
+        uses: juliangruber/find-pull-request-action@v1
+        id: find-pull-request
+        with:
+          branch: ${{ steps.find_branch_name.outputs.text }}
+
+      - name: Auto approve
+        id: autoApprove
+        uses: juliangruber/approve-pull-request-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.find-pull-request.outputs.number }}
+
+      - name: Enable auto-merge
+        run: |
+          gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
