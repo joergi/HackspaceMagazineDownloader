@@ -14,7 +14,7 @@ jobs:
   powershell:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: pCYSl5EDgo/cat@master
         id: read_recent
         with:
@@ -40,7 +40,7 @@ jobs:
         run: ./hackspace-downloader.ps1 -f ${{ env.ISSUE_MINUS_ONE }}
       - name: "Check file existence Windows"
         id: check_files
-        uses: andstor/file-existence-action@v3.0.0
+        uses: andstor/file-existence-action@076e0072799f4942c8bc574a82233e1e4d13e9d6 # v3.0.0
         with:
           files: "issues/HS_01.pdf, issues/HS_02.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf"
           fail: false
@@ -54,7 +54,7 @@ jobs:
   bash-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: pCYSl5EDgo/cat@master
         id: read_recent
         with:
@@ -79,7 +79,7 @@ jobs:
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v3.0.0
+        uses: andstor/file-existence-action@076e0072799f4942c8bc574a82233e1e4d13e9d6 # v3.0.0
         with:
           files: "issues/HS_1.pdf, issues/HS_2.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
@@ -92,7 +92,7 @@ jobs:
   bash-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: pCYSl5EDgo/cat@master
         id: read_recent
         with:
@@ -117,7 +117,7 @@ jobs:
         run: ./hackspace-books-downloader.sh
       - name: "Check file existence linux"
         id: check_files
-        uses: andstor/file-existence-action@v3.0.0
+        uses: andstor/file-existence-action@076e0072799f4942c8bc574a82233e1e4d13e9d6 # v3.0.0
         with:
           files: "issues/HS_1.pdf, issues/HS_2.pdf, issues/HS_${{ env.ISSUE_MINUS_SIX }}.pdf, issues/HS_${{ env.ISSUE_MINUS_FIVE }}.pdf,issues/HS_${{ env.ISSUE_MINUS_ONE }}.pdf,issues/HS_${{ env.ISSUE_NUMBER }}.pdf, special-issues/Book_of_Making_v1.pdf, special-issues/Book_of_Making-vol2.pdf"
           fail: false
